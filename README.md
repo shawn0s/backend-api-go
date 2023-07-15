@@ -45,11 +45,31 @@ $ go run main.go
 
 ## 創建al
 
-##  postgresql db
+## 套用 postgresql db
 
 
 ## 新增Swagger 服務
 
-## Gin Middleware
+## Middleware
+
+### Cors
+
+### Auth
+
+### Logger
+
+
+## Swagger
+
+安裝swag cmd
+```
+go get -u github.com/swaggo/swag/cmd/swag
+go install github.com/swaggo/swag/cmd/swag@latest
+```
+
+
+```
+swag init
+```
 
 ## go-stress-test
