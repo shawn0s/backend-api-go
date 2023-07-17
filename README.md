@@ -70,6 +70,19 @@ func main() {
 
 ```
 
+添加Backend api
+
+```GO
+	v1 := r.Group("/api/v1")
+	{
+		v1.GET("/albums", album.GetAlbums)
+	}
+	
+```
+
+
+
+
 ## 後端 啟動
 
 ```

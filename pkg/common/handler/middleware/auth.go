@@ -1,7 +1,9 @@
 package middleware
 
 import (
+	"io"
 	"net/http"
+	"encoding/json"
 	"log"
 	"github.com/gin-gonic/gin"
 )
@@ -32,9 +34,12 @@ func ValidateToken(c *gin.Context) {
 	// 建立 HTTP 客戶端
 	client := &http.Client{}
 
+	// values := map[string]string{}
+	// jsonValue, _ := json.Marshal(values)
 	// 建立 GET 請求
-	req, err := http.NewRequest("POST", "http://localhost:8080", nil)
+	req, err := http.NewRequest("POST", "http://localhost:8080/api/v1/bfb/auth", nil)
 	req.Header.Add("Authorization", token)
+	req.Header.Add("Content-Type", "application/json")
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, "Unauthorized")
 		c.Abort()
@@ -48,5 +53,12 @@ func ValidateToken(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	c.Set("userAuthDTO", resp)
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+
+	var result UserAuthDTO
+	json.Unmarshal(body, &result)
+	
+	c.Set("userAuthDTO", result)
+	
 }
