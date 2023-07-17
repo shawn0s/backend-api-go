@@ -1,0 +1,3 @@
+http://localhost:8088/api/v1/albums' \
+--header 'accept: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNjg5NDk5NjE5NTMxLCJleHAiOjE2OTIwOTE2MTksInVzZXJJZCI6MSwiZW1haWwiOiJhY2FkZW15LmRldkBkZWx0YXd3LmNvbSJ9.-EasziixGocxOPzqYahhQpOuBUgZI6UpyOo0Ih3PDwCiapiFjAezwSGfRy7umQt2hJyicqZPcfz-i6sHe0X1fA'
